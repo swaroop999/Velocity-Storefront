@@ -359,23 +359,55 @@ input[type="range"] {
 }
 /* Footer Styles */
 /* Updated Footer to match Left Margin */
+/* Footer with Smooth Blend/Fade Effect */
+/* Footer with Shorter Height and Higher Fade Point */
 .site-footer {
-  background-color: #000;
-  color: #fff;
-  padding: 6rem 0; /* Vertical space only */
+  position: relative;
   width: 100%;
-  border-top: 1px solid #1a1a1a; /* Optional: adds a subtle line to separate from content */
+  background-image: url("https://i.pinimg.com/1200x/1c/9d/f3/1c9df3711bced05465b1e11d7c900d58.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Reduced height: was 12rem, now 6rem for a tighter look */
+  padding: 6rem 0 4rem 0;
+  color: #fff;
+  margin-top: 2rem;
+
+  /* Adjusted Mask: Starts fading immediately and is fully visible at 15% */
+  /* This makes the image 'appear' just a bit above the wordings */
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 15%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 15%
+  );
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .footer-container {
+  position: relative;
+  z-index: 2;
   width: 100%;
-  /* This padding-left MUST match your Navbar/Hero padding exactly */
   padding: 0 5%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
-
 /* Ensure the Brand section doesn't have internal margins pushing it */
 .footer-brand {
   flex: 0 1 400px; /* Limits width so it doesn't stretch too far */
