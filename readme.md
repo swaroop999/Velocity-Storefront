@@ -6,7 +6,7 @@ A minimalist, high-performance e-commerce interface designed to look like a prem
 
 ## 🔗 Live Demo
 
-[Insert your Vercel Link Here]
+[(https://velocity-storefront.vercel.app/)]
 
 ## ✨ Features
 
