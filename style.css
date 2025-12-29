@@ -360,92 +360,92 @@ input[type="range"] {
 /* Footer Styles */
 /* Updated Footer to match Left Margin */
 .site-footer {
-    background-color: #000;
-    color: #fff;
-    padding: 6rem 0; /* Vertical space only */
-    width: 100%;
-    border-top: 1px solid #1a1a1a; /* Optional: adds a subtle line to separate from content */
+  background-color: #000;
+  color: #fff;
+  padding: 6rem 0; /* Vertical space only */
+  width: 100%;
+  border-top: 1px solid #1a1a1a; /* Optional: adds a subtle line to separate from content */
 }
 
 .footer-container {
-    width: 100%;
-    /* This padding-left MUST match your Navbar/Hero padding exactly */
-    padding: 0 5%; 
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+  width: 100%;
+  /* This padding-left MUST match your Navbar/Hero padding exactly */
+  padding: 0 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 /* Ensure the Brand section doesn't have internal margins pushing it */
 .footer-brand {
-    flex: 0 1 400px; /* Limits width so it doesn't stretch too far */
-    text-align: left;
+  flex: 0 1 400px; /* Limits width so it doesn't stretch too far */
+  text-align: left;
 }
 
 .footer-brand h2 {
-    font-size: 1.8rem;
-    letter-spacing: 0.3em;
-    margin: 0 0 1.5rem 0; /* Zero on the left */
-    text-transform: uppercase;
-    font-family: 'Syne', sans-serif; /* Matching your logo font */
+  font-size: 1.8rem;
+  letter-spacing: 0.3em;
+  margin: 0 0 1.5rem 0; /* Zero on the left */
+  text-transform: uppercase;
+  font-family: "Syne", sans-serif; /* Matching your logo font */
 }
 
 .footer-brand p {
-    color: #888;
-    line-height: 1.6;
-    font-size: 0.95rem;
-    margin: 0;
-    max-width: 320px;
+  color: #888;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+  max-width: 320px;
 }
 
 /* Align columns to the right side of the screen */
 .footer-links {
-    display: flex;
-    gap: 5rem;
+  display: flex;
+  gap: 5rem;
 }
 
 .footer-column {
-    display: flex;
-    flex-col; /* Stack links vertically */
-    min-width: 120px;
+  display: flex;
+  flex-direction: column; /* Stack links vertically */
+  min-width: 120px;
 }
 
 /* Use flex direction column for links */
 .footer-column {
-    display: flex;
-    flex-direction: column; 
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-column h3 {
-    font-size: 0.75rem;
-    color: #71717a; /* Darker gray for headers */
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
+  font-size: 0.75rem;
+  color: #71717a; /* Darker gray for headers */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
 .footer-column a {
-    color: #d4d4d8; /* Light gray links */
-    text-decoration: none;
-    margin-bottom: 0.75rem;
-    font-size: 0.9rem;
-    transition: color 0.2s;
+  color: #d4d4d8; /* Light gray links */
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  transition: color 0.2s;
 }
 
 .footer-column a:hover {
-    color: #fff; /* White on hover */
+  color: #fff; /* White on hover */
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        gap: 2rem;
-    }
-    
-    .footer-links {
-        justify-content: space-between;
-        width: 100%;
-    }
+  .footer-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-links {
+    justify-content: space-between;
+    width: 100%;
+  }
 }
