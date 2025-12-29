@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VELOCITY | Dark Mode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Syne:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">VELOCITY</div>
+      <div class="nav-links">
+        <a onclick="scrollToShop()">Shop</a>
+        <a onclick="openModal('about')">About</a>
+        <a onclick="openModal('contact')">Contact</a>
+      </div>
+      <div class="nav-icons" onclick="toggleCart()">
+        CART (<span id="cart-count">0</span>)
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-content">
+        <h1>WALK ON<br />THE VOID</h1>
+        <button class="btn-hero" onclick="scrollToShop()">ENTER ARCHIVE</button>
+      </div>
+    </header>
+
+    <div class="container" id="shop-section">
+      <aside class="sidebar">
+        <div class="filter-group">
+          <h3>CATEGORY</h3>
+          <label
+            ><input type="radio" name="category" value="all" checked /> All
+            Items</label
+          >
+          <label
+            ><input type="radio" name="category" value="running" />
+            Performance</label
+          >
+          <label
+            ><input type="radio" name="category" value="lifestyle" />
+            Lifestyle</label
+          >
+          <label
+            ><input type="radio" name="category" value="gym" /> Training</label
+          >
+        </div>
+        <div class="filter-group" style="margin-top: 2rem">
+          <h3>MAX PRICE: <span id="price-value">$300</span></h3>
+          <input type="range" id="price-range" min="0" max="300" value="300" />
+        </div>
+      </aside>
+
+      <main class="product-grid" id="product-grid"></main>
+    </div>
+
+    <div class="cart-overlay" id="cart-overlay">
+      <div class="cart-drawer">
+        <div class="cart-header">
+          <h2>YOUR SELECTION</h2>
+          <button
+            class="close-modal"
+            onclick="toggleCart()"
+            style="position: static; font-size: 1.5rem"
+          >
+            ×
+          </button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              font-weight: 700;
+              margin-bottom: 1rem;
+            "
+          >
+            <span>TOTAL</span>
+            <span id="cart-total">$0.00</span>
+          </div>
+          <button class="btn-checkout">CHECKOUT</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-modal-overlay" id="info-modal">
+      <div class="info-modal">
+        <button class="close-modal" onclick="closeModal()">×</button>
+        <div id="modal-content" class="info-content"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

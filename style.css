@@ -1,0 +1,359 @@
+:root {
+  --bg-color: #050505;
+  --text-main: #ffffff;
+  --text-muted: #888888;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  background-color: #050505; /* The Void */
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.logo {
+  font-family: "Syne", sans-serif;
+  text-transform: uppercase;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(to bottom, rgba(5, 5, 5, 0.95), transparent);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin: 0 1.5rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+.nav-links a:hover {
+  color: var(--text-main);
+}
+.nav-icons {
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  height: 100vh; /* Takes up the full screen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+
+  /* The Medusa Image + A Fade to Black at the bottom */
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(5, 5, 5, 1) 100%
+    ),
+    url("https://i.pinimg.com/736x/4b/3a/74/4b3a748d5f08c3f07994b9ba7e099f18.jpg");
+
+  background-size: cover;
+  background-position: center 20%; /* Centers the face */
+  background-repeat: no-repeat;
+}
+
+/* Keep the text gradient */
+.hero-content h1 {
+  font-size: 6vw;
+  line-height: 0.9;
+  margin-bottom: 2rem;
+  /* Make text slightly brighter against the dark image */
+  background: linear-gradient(to right, #ffffff, #aaaaaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.hero-content h1 {
+  font-size: 6vw;
+  line-height: 0.9;
+  margin-bottom: 2rem;
+  background: linear-gradient(to right, #fff, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.btn-hero {
+  background: transparent;
+  border: 1px solid var(--text-muted);
+  color: var(--text-main);
+  padding: 1rem 2.5rem;
+  font-family: "Manrope", sans-serif;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-hero:hover {
+  border-color: var(--text-main);
+  background: var(--text-main);
+  color: black;
+}
+
+/* Layout */
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  gap: 4rem;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  position: sticky;
+  top: 150px;
+  height: fit-content;
+  padding-right: 2rem;
+  border-right: 1px solid #222;
+}
+.filter-group h3 {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+.filter-group label {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: #555;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+.filter-group label:hover {
+  color: var(--text-main);
+}
+input[type="range"] {
+  accent-color: var(--text-main);
+  width: 100%;
+  background: #222;
+}
+
+/* Grid (Masonry) */
+.product-grid {
+  flex: 1;
+  column-count: 3;
+  column-gap: 2rem;
+}
+
+.card {
+  break-inside: avoid;
+  margin-bottom: 2rem;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+/* FIXED: No Dark Mask - Images show in full color */
+.card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-img {
+  transform: scale(1.03);
+}
+
+.card-info {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.card-price {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.btn-add {
+  margin-top: 0.5rem;
+  background: transparent;
+  border: 1px solid #333;
+  color: var(--text-main);
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.btn-add:hover {
+  background: var(--text-main);
+  color: black;
+}
+
+/* Cart Drawer */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+  display: none;
+  justify-content: flex-end;
+  backdrop-filter: blur(5px);
+}
+.cart-overlay.open {
+  display: flex;
+}
+.cart-drawer {
+  width: 400px;
+  background: #111;
+  height: 100%;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #333;
+}
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+}
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+}
+.cart-item {
+  display: flex;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  color: #ccc;
+}
+.cart-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+}
+.btn-checkout {
+  width: 100%;
+  padding: 1rem;
+  background: var(--text-main);
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+/* New: Info Modal (Contact/About) */
+.info-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 3000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+.info-modal-overlay.open {
+  display: flex;
+}
+
+.info-modal {
+  background: #111;
+  border: 1px solid #333;
+  padding: 4rem 3rem;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.05);
+}
+.close-modal {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.info-content h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+.info-content p {
+  color: #888;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+.info-highlight {
+  color: white;
+  font-weight: 600;
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 1024px) {
+  .product-grid {
+    column-count: 2;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 0 1.5rem;
+  }
+  .sidebar {
+    display: none;
+  }
+  .product-grid {
+    column-count: 1;
+  }
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+  .cart-drawer {
+    width: 100%;
+  }
+}
