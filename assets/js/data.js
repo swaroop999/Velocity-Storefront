@@ -1,4 +1,4 @@
-// assets/js/data.js
+// TODO: Replace with fetch('/api/products') in production
 export const products = [
   {
     id: 1,
