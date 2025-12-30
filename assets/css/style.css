@@ -433,17 +433,19 @@ input[type="range"] {
 /* ----------------------------------------------------------------- */
 /* FINAL MOBILE FIX (COPY THIS PART CAREFULLY)       */
 /* ----------------------------------------------------------------- */
+/* ----------------------------------------------------------------- */
+/* FINAL MOBILE FIX v2 (Includes Filters & Sorting)                  */
+/* ----------------------------------------------------------------- */
 @media (max-width: 768px) {
   /* 1. Navbar: Stack Logo and Links vertically */
   .navbar {
     flex-direction: column;
     gap: 1rem;
     padding: 1.5rem 1rem;
-    background: rgba(5, 5, 5, 0.98); /* Solid dark bg for better readability */
-    height: auto; /* Allow navbar to grow to fit content */
+    background: rgba(5, 5, 5, 0.98);
+    height: auto;
   }
 
-  /* Fix the nav-links alignment */
   .nav-links {
     display: flex;
     justify-content: center;
@@ -457,7 +459,6 @@ input[type="range"] {
     font-size: 0.9rem;
   }
 
-  /* Move the Cart Icon to the top-right corner absolutely */
   .nav-icons {
     position: absolute;
     top: 1.5rem;
@@ -466,39 +467,80 @@ input[type="range"] {
 
   /* 2. Hero: FORCE Full Screen Height */
   .hero {
-    height: 100vh !important; /* Keep it full screen! */
+    height: 100vh !important;
     background-position: center;
     align-items: center;
     padding-top: 0;
   }
 
   .hero-content h1 {
-    font-size: 13vw; /* Big text on mobile */
+    font-size: 13vw;
     line-height: 1;
     margin-bottom: 1.5rem;
   }
 
-  /* 3. Layout: Stack Content */
+  /* 3. Layout: Stack Sidebar on TOP of Grid */
   .container {
     padding: 2rem 1.5rem;
-    flex-direction: column; /* Stack sidebar and grid */
+    flex-direction: column; /* Stack vertically */
+    gap: 3rem; /* Space between filters and products */
   }
 
+  /* 4. Sidebar (Filters): UNHIDE and Style for Mobile */
   .sidebar {
-    display: none; /* Hide filter sidebar on mobile */
+    display: block !important; /* Force Show */
+    width: 100%;
+    position: static; /* Remove sticky behavior */
+    height: auto;
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid #222; /* Separator line */
+    padding-bottom: 2rem;
   }
 
+  /* Turn Radio Buttons into "Touch-Friendly Chips" */
+  .filter-group {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Select all labels inside sidebar (The Categories) */
+  .sidebar label {
+    display: inline-flex; /* Sit side-by-side */
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px; /* Fat finger friendly padding */
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 8px; /* Rounded corners */
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+  }
+
+  /* Highlight the active label (optional visual cue) */
+  .sidebar label:active {
+    background-color: #222;
+    border-color: #fff;
+  }
+
+  /* Make the Price Range Full Width */
+  input[type="range"] {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  /* 5. Product Grid */
   .product-grid {
     column-count: 1; /* One product per row */
-    gap: 2rem;
+    gap: 3rem;
   }
 
-  /* 4. Cart Drawer */
+  /* 6. Cart Drawer & Footer */
   .cart-drawer {
     width: 100%;
   }
 
-  /* 5. Footer Layout */
   .footer-container {
     flex-direction: column;
     gap: 2rem;
