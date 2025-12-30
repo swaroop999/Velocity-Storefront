@@ -94,14 +94,7 @@ h3,
   -webkit-text-fill-color: transparent;
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
-.hero-content h1 {
-  font-size: 6vw;
-  line-height: 0.9;
-  margin-bottom: 2rem;
-  background: linear-gradient(to right, #fff, #888);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+
 .btn-hero {
   background: transparent;
   border: 1px solid var(--text-muted);
@@ -339,28 +332,8 @@ input[type="range"] {
     column-count: 2;
   }
 }
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    padding: 0 1.5rem;
-  }
-  .sidebar {
-    display: none;
-  }
-  .product-grid {
-    column-count: 1;
-  }
-  .hero-content h1 {
-    font-size: 3.5rem;
-  }
-  .cart-drawer {
-    width: 100%;
-  }
-}
+
 /* Footer Styles */
-/* Updated Footer to match Left Margin */
-/* Footer with Smooth Blend/Fade Effect */
-/* Footer with Shorter Height and Higher Fade Point */
 .site-footer {
   position: relative;
   width: 100%;
@@ -368,14 +341,9 @@ input[type="range"] {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  /* Reduced height: was 12rem, now 6rem for a tighter look */
   padding: 6rem 0 4rem 0;
   color: #fff;
   margin-top: 2rem;
-
-  /* Adjusted Mask: Starts fading immediately and is fully visible at 15% */
-  /* This makes the image 'appear' just a bit above the wordings */
   mask-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0) 0%,
@@ -408,18 +376,18 @@ input[type="range"] {
   justify-content: space-between;
   align-items: flex-start;
 }
-/* Ensure the Brand section doesn't have internal margins pushing it */
+
 .footer-brand {
-  flex: 0 1 400px; /* Limits width so it doesn't stretch too far */
+  flex: 0 1 400px;
   text-align: left;
 }
 
 .footer-brand h2 {
   font-size: 1.8rem;
   letter-spacing: 0.3em;
-  margin: 0 0 1.5rem 0; /* Zero on the left */
+  margin: 0 0 1.5rem 0;
   text-transform: uppercase;
-  font-family: "Syne", sans-serif; /* Matching your logo font */
+  font-family: "Syne", sans-serif;
 }
 
 .footer-brand p {
@@ -430,7 +398,6 @@ input[type="range"] {
   max-width: 320px;
 }
 
-/* Align columns to the right side of the screen */
 .footer-links {
   display: flex;
   gap: 5rem;
@@ -438,19 +405,13 @@ input[type="range"] {
 
 .footer-column {
   display: flex;
-  flex-direction: column; /* Stack links vertically */
-  min-width: 120px;
-}
-
-/* Use flex direction column for links */
-.footer-column {
-  display: flex;
   flex-direction: column;
+  min-width: 120px;
 }
 
 .footer-column h3 {
   font-size: 0.75rem;
-  color: #71717a; /* Darker gray for headers */
+  color: #71717a;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
@@ -458,7 +419,7 @@ input[type="range"] {
 }
 
 .footer-column a {
-  color: #d4d4d8; /* Light gray links */
+  color: #d4d4d8;
   text-decoration: none;
   margin-bottom: 0.75rem;
   font-size: 0.9rem;
@@ -466,11 +427,78 @@ input[type="range"] {
 }
 
 .footer-column a:hover {
-  color: #fff; /* White on hover */
+  color: #fff;
 }
 
-/* Mobile Responsiveness */
+/* ----------------------------------------------------------------- */
+/* FINAL MOBILE FIX (COPY THIS PART CAREFULLY)       */
+/* ----------------------------------------------------------------- */
 @media (max-width: 768px) {
+  /* 1. Navbar: Stack Logo and Links vertically */
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+    background: rgba(5, 5, 5, 0.98); /* Solid dark bg for better readability */
+    height: auto; /* Allow navbar to grow to fit content */
+  }
+
+  /* Fix the nav-links alignment */
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .nav-links a {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  /* Move the Cart Icon to the top-right corner absolutely */
+  .nav-icons {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  /* 2. Hero: FORCE Full Screen Height */
+  .hero {
+    height: 100vh !important; /* Keep it full screen! */
+    background-position: center;
+    align-items: center;
+    padding-top: 0;
+  }
+
+  .hero-content h1 {
+    font-size: 13vw; /* Big text on mobile */
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  /* 3. Layout: Stack Content */
+  .container {
+    padding: 2rem 1.5rem;
+    flex-direction: column; /* Stack sidebar and grid */
+  }
+
+  .sidebar {
+    display: none; /* Hide filter sidebar on mobile */
+  }
+
+  .product-grid {
+    column-count: 1; /* One product per row */
+    gap: 2rem;
+  }
+
+  /* 4. Cart Drawer */
+  .cart-drawer {
+    width: 100%;
+  }
+
+  /* 5. Footer Layout */
   .footer-container {
     flex-direction: column;
     gap: 2rem;
@@ -479,44 +507,7 @@ input[type="range"] {
   .footer-links {
     justify-content: space-between;
     width: 100%;
-  }
-}
-
-/* --- MOBILE RESPONSIVE FIX --- */
-@media (max-width: 768px) {
-  /* 1. Stack the header elements vertically */
-  header {
-    flex-direction: column;
-    height: auto;
-    padding: 20px 0;
-    gap: 15px;
-  }
-
-  /* 2. Fix the Navigation Links */
-  nav ul {
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-  }
-
-  nav a {
-    font-size: 14px; /* Make text readable */
-  }
-
-  /* 3. Position the Cart Icon */
-  .cart-icon {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-  }
-
-  /* 4. Fix the Main Hero Image Text */
-  .hero-content h1 {
-    font-size: 3rem; /* Smaller headline for mobile */
-    line-height: 1.1;
-  }
-
-  .hero-content {
-    top: 40%; /* Adjust vertical position */
+    gap: 2rem;
+    flex-wrap: wrap;
   }
 }
